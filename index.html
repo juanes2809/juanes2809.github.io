@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages & Flowers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #fdcb6e 0%, #f39c12 30%, #e67e22 70%, #d63031 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2d3436;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            color: #2d3436;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #636e72;
+            font-style: italic;
+        }
+
+        .message-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 2px solid #fdcb6e;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .message-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+
+        .message-box::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 30px;
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 12px solid #fdcb6e;
+        }
+
+        .message-box::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 32px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid rgba(255, 255, 255, 0.95);
+        }
+
+        .message-author {
+            font-weight: bold;
+            color: #e67e22;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .message-author::before {
+            content: '🌻';
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .message-content {
+            color: #2d3436;
+            line-height: 1.6;
+            font-size: 1rem;
+            background: rgba(253, 203, 110, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #fdcb6e;
+        }
+
+
+
+        /* Floating flowers */
+        .flower {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: float 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .flower:nth-child(1) { top: 5%; left: 5%; animation-delay: 0s; }
+        .flower:nth-child(2) { top: 15%; right: 8%; animation-delay: 1s; }
+        .flower:nth-child(3) { top: 35%; left: 3%; animation-delay: 2s; }
+        .flower:nth-child(4) { top: 55%; right: 5%; animation-delay: 3s; }
+        .flower:nth-child(5) { top: 75%; left: 10%; animation-delay: 4s; }
+        .flower:nth-child(6) { top: 25%; right: 15%; animation-delay: 5s; }
+        .flower:nth-child(7) { top: 65%; left: 20%; animation-delay: 1.5s; }
+        .flower:nth-child(8) { top: 45%; right: 12%; animation-delay: 2.5s; }
+        .flower:nth-child(9) { top: 85%; right: 20%; animation-delay: 3.5s; }
+        .flower:nth-child(10) { top: 10%; left: 25%; animation-delay: 4.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(15deg); }
+        }
+
+        /* Petals falling animation */
+        .petal {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #fdcb6e;
+            border-radius: 50%;
+            animation: fall 12s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .github-note {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            border: 2px solid #fdcb6e;
+            text-align: center;
+            color: #2d3436;
+        }
+
+        .github-note h3 {
+            color: #e67e22;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .message-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .message-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating flowers -->
+    <div class="flower">🌻</div>
+    <div class="flower">🌼</div>
+    <div class="flower">🌺</div>
+    <div class="flower">🌸</div>
+    <div class="flower">🌷</div>
+    <div class="flower">🌹</div>
+    <div class="flower">🌻</div>
+    <div class="flower">🌼</div>
+    <div class="flower">🌺</div>
+    <div class="flower">🌸</div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Messages & Flowers</h1>
+            <p>Beautiful messages for a special person</p>
+        </div>
+
+        <div class="message-container" id="messageContainer">
+            <div class="message-box">
+                <div class="message-author">Sarah Johnson</div>
+                <div class="message-content">
+                    You bring so much joy and light into everyone's life. Your kindness and warmth make the world a better place. Thank you for being such an amazing person!
+                </div>
+            </div>
+
+            <div class="message-box">
+                <div class="message-author">Michael Chen</div>
+                <div class="message-content">
+                    Your smile can brighten even the darkest days. I'm so grateful to have you in my life. You inspire me to be a better person every single day.
+                </div>
+            </div>
+
+            <div class="message-box">
+                <div class="message-author">Emily Rodriguez</div>
+                <div class="message-content">
+                    Thank you for always being there when I needed someone to talk to. Your friendship means the world to me. You have such a beautiful heart and soul.
+                </div>
+            </div>
+
+            <div class="message-box">
+                <div class="message-author">David Thompson</div>
+                <div class="message-content">
+                    You are one of the most genuine and caring people I know. Your positive energy is contagious and makes everyone around you feel special.
+                </div>
+            </div>
+
+            <div class="message-box">
+                <div class="message-author">Lisa Park</div>
+                <div class="message-content">
+                    Words cannot express how much you mean to me. You've touched so many lives with your compassion and generosity. The world is brighter because of you.
+                </div>
+            </div>
+
+            <div class="message-box">
+                <div class="message-author">James Wilson</div>
+                <div class="message-content">
+                    Your strength and resilience inspire me every day. You face challenges with grace and always find a way to help others, even when you're going through tough times yourself.
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        // Create falling petals
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.style.left = Math.random() * 100 + '%';
+            petal.style.animationDelay = Math.random() * 2 + 's';
+            petal.style.animationDuration = (Math.random() * 4 + 8) + 's';
+            
+            // Yellow-themed colors for petals
+            const colors = ['#fdcb6e', '#f39c12', '#e67e22', '#d63031', '#ffeaa7'];
+            petal.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            document.body.appendChild(petal);
+            
+            setTimeout(() => {
+                petal.remove();
+            }, 12000);
+        }
+
+        // Create petals periodically
+        setInterval(createPetal, 3000);
+        
+        // Initial petals
+        for (let i = 0; i < 8; i++) {
+            setTimeout(createPetal, i * 500);
+        }
+    </script>
+</body>
+</html>
