@@ -1,104 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUCIA</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUCIA</title>
+<link rel="stylesheet" href="style.css">       
 </head>
 <body>
-    <!-- Floating flowers -->
-    <div class="flower">🌻</div>
-    <div class="flower">🌼</div>
-    <div class="flower">🌺</div>
-    <div class="flower">🌻</div>
-    <div class="flower">🌷</div>
-    <div class="flower">🌹</div>
-    <div class="flower">🌻</div>
-    <div class="flower">🌼</div>
-    <div class="flower">🌺</div>
-    <div class="flower">🌸</div>
+<!-- Floating penguins and ducks -->
+<div class="floating-animal">🐧</div>
+<div class="floating-animal">🦆</div>
+<div class="floating-animal">🐧</div>
+<div class="floating-animal">🦆</div>
+<div class="floating-animal">🐧</div>
+<div class="floating-animal">🦆</div>
+<div class="floating-animal">🐧</div>
+<div class="floating-animal">🦆</div>
 
-    <div class="container">
-        <div class="header">
-            <h1></h1>
-            <p>Beautiful messages for the most beautiful flower on the garden</p>
+<!-- Walking penguin and swimming duck -->
+<div class="penguin-waddle">🐧</div>
+<div class="duck-swim">🦆</div>
+
+<div class="container">
+<div class="header">
+<h1>Beautiful messages for the most beautiful flower in the garden 🌼</h1>
+<p></p>
+<p>Bienvenida a un espacio creado para ti. Aquí he guardado mis sentimientos, mis recuerdos y la historia de un amor que me hizo decir: "por fin te encontré". Eres la mujer más linda que existe y siempre creeré en ti, porque puedes con todo. Y sé que contigo se me acelera el corazón.</p>
+</div>
+
+<div class="message-container">
+<!-- Envelope 1 -->
+<div class="envelope" onclick="openEnvelope(this)">
+    <div class="envelope-front">
+        <div class="envelope-seal">🌼</div>
+        <div class="envelope-content">
+            <div class="envelope-label">💌</div>
+            <div class="click-hint">Para:</div>
         </div>
-
-        <div class="message-container" id="messageContainer">
-            <div class="message-box">
-                <div class="message-author">.</div>
-                <div class="message-content">
-                    a
-                </div>
-            </div>
-
-            <div class="message-box">
-                <div class="message-author">.</div>
-                <div class="message-content">
-                    a
-                </div>
-            </div>
-
-            <div class="message-box">
-                <div class="message-author">.</div>
-                <div class="message-content">
-                    a
-                </div>
-            </div>
-
-            <div class="message-box">
-                <div class="message-author">.</div>
-                <div class="message-content">
-                    a
-                </div>
-            </div>
-
-            <div class="message-box">
-                <div class="message-author">.</div>
-                <div class="message-content">
-                    a
-                </div>
-            </div>
-
-            <div class="message-box">
-                <div class="message-author">.</div>
-                <div class="message-content">
-                    a
-                </div>
-            </div>
-        </div>
-
-
     </div>
+    <div class="envelope-back">
+        <div class="message-author">🐧</div>
+        <div class="message-content">
+            Mi amor por ti es como este código: complejo pero sincero, y cada mensaje que te envía es un 'te amo' verdadero. Prefiero tenerte en mi vida, porque la idea de perderte me duele, y el simple hecho de sentirlo me ha aclarado que estos sentimientos son de amor.
+        </div>
+    </div>
+</div>
 
-    <script>
-        // Create falling petals
-        function createPetal() {
-            const petal = document.createElement('div');
-            petal.className = 'petal';
-            petal.style.left = Math.random() * 100 + '%';
-            petal.style.animationDelay = Math.random() * 2 + 's';
-            petal.style.animationDuration = (Math.random() * 4 + 8) + 's';
-            
-            // Yellow-themed colors for petals
-            const colors = ['#fdcb6e', '#cd9c4f', '#ffd765', '#ffe836', '#ffe836'];
-            petal.style.background = colors[Math.floor(Math.random() * colors.length)];
-            
-            document.body.appendChild(petal);
-            
-            setTimeout(() => {
-                petal.remove();
-            }, 12000);
-        }
+<!-- Envelope 2 -->
+<div class="envelope" onclick="openEnvelope(this)">
+    <div class="envelope-front">
+        <div class="envelope-seal">🌼</div>
+        <div class="envelope-content">
+            <div class="envelope-label">💌</div>
+            <div class="click-hint">Para:</div>
+        </div>
+    </div>
+    <div class="envelope-back">
+        <div class="message-author">🦆</div>
+        <div class="message-content">
+            Cuando todo parece oscuro, tú eres mi luz. Estas flores brillan para ti, para recordarte que eres la estrella que guía mi camino, la que me hizo decir "por fin te encontré" y saber que no hay nada más que quiera en la vida.
+        </div>
+    </div>
+</div>
 
-        // Create petals periodically
-        setInterval(createPetal, 3000);
-        
-        // Initial petals
-        for (let i = 0; i < 8; i++) {
-            setTimeout(createPetal, i * 500);
+<!-- Envelope 3 -->
+<div class="envelope" onclick="openEnvelope(this)">
+    <div class="envelope-front">
+        <div class="envelope-seal">🌼</div>
+        <div class="envelope-content">
+            <div class="envelope-label">💌</div>
+            <div class="click-hint">Para:</div>
+        </div>
+    </div>
+    <div class="envelope-back">
+        <div class="message-author">🐧🦆</div>
+        <div class="message-content">
+           Una lamparita para que ilumine tus noches, así como tú iluminas mis días. Este patito es un pequeño recordatorio de que siempre estoy pensando en ti. Aunque no sé qué va a pasar.
+        </div>
+    </div>
+</div>
+
+<!-- Envelope 4 -->
+<div class="envelope" onclick="openEnvelope(this)">
+    <div class="envelope-front">
+        <div class="envelope-seal">🌼</div>
+        <div class="envelope-content">
+            <div class="envelope-label">💌</div>
+            <div class="click-hint">Para:</div>
+        </div>
+    </div>
+    <div class="envelope-back">
+        <div class="message-author">💖</div>
+        <div class="message-content">
+            Cada punto en estas flores es un pensamiento que tengo sobre ti.
+        </div>
+    </div>
+</div>
+
+<!-- Envelope 5 -->
+<div class="envelope" onclick="openEnvelope(this)">
+    <div class="envelope-front">
+        <div class="envelope-seal">🌼</div>
+        <div class="envelope-content">
+            <div class="envelope-label">💌</div>
+            <div class="click-hint">Para:</div>
+        </div>
+    </div>
+    <div class="envelope-back">
+        <div class="message-author">🐧</div>
+        <div class="message-content">
+            Como el papel iris, tu risa tiene mil matices que me fascinan. Estoy tragao' de ti, de tu mirada encantadora y de ese "no sé qué" que me vuelve loco. Este regalo es para que siempre recuerdes lo mucho que iluminas mi vida.
+        </div>
+    </div>
+</div>
+
+<!-- Envelope 6 -->
+<div class="envelope" onclick="openEnvelope(this)">
+    <div class="envelope-front">
+        <div class="envelope-seal">🌼</div>
+        <div class="envelope-content">
+            <div class="envelope-label">💌</div>
+            <div class="click-hint">Para:</div>
+        </div>
+    </div>
+    <div class="envelope-back">
+        <div class="message-author">🦆</div>
+        <div class="message-content">
+            Estas flores de cartulina representan la alegría y el color que le has dado a mi vida. Hace un año te vi, pero es ahora, después de conocerte, que me siento completamente enamorado. Eres admirable, la mujer más linda que existe, y sé que puedes con todo.
+        </div>
+    </div>
+</div>
+<!-- Envelope 7 -->
+<div class="envelope" onclick="openEnvelope(this)">
+    <div class="envelope-front">
+        <div class="envelope-seal">🌼</div>
+        <div class="envelope-content">
+            <div class="envelope-label">💌</div>
+            <div class="click-hint">Para:</div>
+        </div>
+    </div>
+    <div class="envelope-back">
+        <div class="message-author">🦆</div>
+        <div class="message-content">
+            Te hice estas flores con mis propias manos para que duren para siempre. Cada pétalo es una de las mil veces que me quedo sin palabras al verte. Eres encantadora.
+        </div>
+    </div>
+</div>
+<!-- Envelope 8 -->
+<div class="envelope" onclick="openEnvelope(this)">
+    <div class="envelope-front">
+        <div class="envelope-seal">🌼</div>
+        <div class="envelope-content">
+            <div class="envelope-label">💌</div>
+            <div class="click-hint">Para:</div>
+        </div>
+    </div>
+    <div class="envelope-back">
+        <div class="message-author">🦆</div>
+        <div class="message-content">
+        Durante un año, mi interes por ti floreció en silencio. Desde hace seis meses, tuve la valentía de hablarte, y hoy, estas flores son una muestra de lo real y sincero que es. Porque por ti, todo lo que hago lo hago por ti, y es que tú me sacas lo mejor de mí.        </div>
+    </div>
+</div>
+<!-- Envelope 9 -->
+<div class="envelope" onclick="openEnvelope(this)">
+    <div class="envelope-front">
+        <div class="envelope-seal">🌼</div>
+        <div class="envelope-content">
+            <div class="envelope-label">💌</div>
+            <div class="click-hint">Si sabes, cierto?</div>
+        </div>
+    </div>
+    <div class="envelope-back">
+        <div class="message-author">Lo linda que eres y ...</div>
+        <div class="message-content">
+        Lo mucho que te amo,quiero y adoro</div>
+    </div>
+</div>
+</div>
+</div>
+
+<script>
+// Open envelope functionality
+function openEnvelope(envelope) {
+    envelope.classList.toggle('opened');
+}
+
+// Create falling petals
+function createPetal() {
+    const petal = document.createElement('div');
+    petal.className = 'petal';
+    petal.style.left = Math.random() * 100 + '%';
+    petal.style.animationDelay = Math.random() * 2 + 's';
+    petal.style.animationDuration = (Math.random() * 4 + 8) + 's';
+    
+    // Yellow-themed colors for petals
+    const colors = ['#fdcb6e', '#cd9c4f', '#ffd765', '#ffe836', '#f39c12'];
+    petal.style.background = colors[Math.floor(Math.random() * colors.length)];
+    
+    document.body.appendChild(petal);
+    
+    setTimeout(() => {
+        petal.remove();
+    }, 12000);
+}
+
+// Create petals periodically
+setInterval(createPetal, 3000);
+
+// Initial petals
+for (let i = 0; i < 8; i++) {
+    setTimeout(createPetal, i * 500);
+}
+
+// Add some interactive sparkles when clicking envelopes
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.envelope')) {
+        createSparkle(e.pageX, e.pageY);
+    }
+});
+
+function createSparkle(x, y) {
+    const sparkle = document.createElement('div');
+    sparkle.innerHTML = '✨';
+    sparkle.style.position = 'absolute';
+    sparkle.style.left = x + 'px';
+    sparkle.style.top = y + 'px';
+    sparkle.style.pointerEvents = 'none';
+    sparkle.style.fontSize = '1.5rem';
+    sparkle.style.animation = 'sparkle 1s ease-out forwards';
+    sparkle.style.zIndex = '1000';
+    
+    document.body.appendChild(sparkle);
+    
+    setTimeout(() => {
+        sparkle.remove();
+    }, 1000);
+}
+
+// Add sparkle animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes sparkle {
+        0% {
+            transform: scale(0) rotate(0deg);
+            opacity: 1;
         }
-    </script>
+        50% {
+            transform: scale(1) rotate(180deg);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(0) rotate(360deg);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
+</script>
 </body>
 </html>
