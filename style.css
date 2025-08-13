@@ -4,12 +4,14 @@
             box-sizing: border-box;
         }
 
+
         body {
             font-family: 'Georgia', serif;
             background: linear-gradient(135deg, #fdcb6e 0%, #cd9c4f 30%, #ffd765 70%, #ffe836 100%);
             min-height: 100vh;
             padding: 20px;
             position: relative;
+            overflow-x: hidden;
         }
 
         .container {
@@ -17,7 +19,6 @@
             margin: 0 auto;
             position: relative;
             z-index: 10;
-            overflow: hidden; 
         }
 
         .header {
@@ -266,92 +267,37 @@
 
         /* Special penguin and duck elements */
         .penguin-waddle {
-
-
-
             position: fixed;
-
-
             bottom: 20px;
-
-
             left: -60px;
-
-
             font-size: 3rem;
-
-
             animation: penguin-walk 15s linear infinite;
-
-
             z-index: 5;
 
-
         }
-
-
-
-
-
         @keyframes penguin-walk {
-
-
             0% { left: -60px; transform: scaleX(1); }
-
-
             50% { left: calc(50% - 30px); }
-
-
             100% { left: calc(100% + 60px); transform: scaleX(1); }
 
-
         }
-
-
-
-
 
         .duck-swim {
-
-
             position: fixed;
-
-
             top: 20px;
-
-
             right: -60px;
-
-
             font-size: 2.5rem;
-
-
             animation: duck-swim 20s linear infinite;
-
-
             z-index: 5;
 
-
         }
-
-
-
-
 
         @keyframes duck-swim {
-
-
             0% { right: -60px; transform: scaleX(-1); }
-
-
             50% { right: calc(50% - 30px); }
-
-
             100% { right: calc(100% + 60px); transform: scaleX(-1); }
 
-
         }
-
 
         @media (max-width: 768px) {
             .header h1 {
