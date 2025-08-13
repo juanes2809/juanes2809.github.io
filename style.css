@@ -18,6 +18,8 @@
             margin: 0 auto;
             position: relative;
             z-index: 10;
+            max-height: 90vh; 
+            overflow: hidden; 
         }
 
         .header {
