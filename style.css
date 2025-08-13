@@ -3,7 +3,95 @@
             padding: 0;
             box-sizing: border-box;
         }
+@media (max-width: 768px) {
 
+
+
+    /* Reset the overflow to allow the entire page to scroll on mobile */
+
+
+    html, body {
+
+
+        overflow: auto; 
+
+
+    }
+
+
+
+
+
+    /* Remove the fixed height on the main container */
+
+
+    .container {
+
+
+        max-height: none;
+
+
+    }
+
+
+
+
+
+    /* Make the message container take up the full width */
+
+
+    .message-container {
+
+
+        display: flex;
+
+
+        flex-direction: column; /* Stacks envelopes vertically */
+
+
+        align-items: center;
+
+
+        overflow-y: visible; /* Removes the inner scrollbar */
+
+
+    }
+
+
+
+
+
+    /* Adjust the envelope size for better mobile viewing */
+
+
+    .envelope {
+
+
+        width: 90%; /* Makes envelopes take up most of the screen width */
+
+
+        height: auto;
+
+
+    }
+
+
+
+
+
+    /* Adjust the text size so it's easy to read */
+
+
+    .header h1 {
+
+
+        font-size: 1.8rem;
+
+
+    }
+
+
+}
 
         body {
             font-family: 'Georgia', serif;
